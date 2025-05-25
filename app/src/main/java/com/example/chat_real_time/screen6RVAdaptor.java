@@ -32,6 +32,7 @@ public class screen6RVAdaptor extends RecyclerView.Adapter<screen6RVAdaptor.scre
     DatabaseReference myRef;
     List<users> accounts;
     fragment_screen6 fragment;
+    private ChildEventListener childEventListener;
 
     public screen6RVAdaptor(Context context, List<contact> contactList, fragment_screen6 fragment) {
         this.context = context;
@@ -46,6 +47,7 @@ public class screen6RVAdaptor extends RecyclerView.Adapter<screen6RVAdaptor.scre
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 accounts.add(snapshot.getValue(users.class));
+                notifyDataSetChanged();
             }
 
             @Override
@@ -69,11 +71,16 @@ public class screen6RVAdaptor extends RecyclerView.Adapter<screen6RVAdaptor.scre
             }
         });
     }
+    public void removeListener() {
+        if (childEventListener != null) {
+            myRef.removeEventListener(childEventListener);
+        }
+    }
 
     @NonNull
     @Override
     public screen6ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(context).inflate(R.layout.contact_row, null, false);
+        View itemView = LayoutInflater.from(context).inflate(R.layout.contact_row, parent, false);
         return new screen6ViewHolder(itemView);
     }
 
@@ -120,4 +127,6 @@ public class screen6RVAdaptor extends RecyclerView.Adapter<screen6RVAdaptor.scre
             dp = itemView.findViewById(R.id.dp);
         }
     }
+
+
 }

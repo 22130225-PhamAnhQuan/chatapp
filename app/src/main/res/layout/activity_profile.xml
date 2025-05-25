@@ -12,6 +12,16 @@
     android:padding="24dp"
     android:background="#1C1B1B"
     tools:context=".ProfileActivity">
+
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="175dp"
+        android:backgroundTint="#193155"
+        android:textColor="#193155"
+        android:background="@drawable/back_arrow_icon" />
+
     <ImageView
         android:id="@+id/image_profile_avatar"
         android:layout_width="120dp"
@@ -19,7 +29,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginBottom="25dp"
         android:scaleType="centerCrop"
-        android:background="@drawable/common_full_open_on_phone"
+        android:background="@drawable/gradient_blue_black"
         android:clipToOutline="true"/>
     <!--  Hiện tên  -->
     <LinearLayout
@@ -136,6 +146,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
+        android:backgroundTint="#193155"
         android:text="Chỉnh sửa thông tin"/>
     <!--  Nút đăng xuất  -->
     <Button
@@ -143,7 +154,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:backgroundTint="#FF5252"
+        android:backgroundTint="#F46262"
         android:text="Đăng xuất"
         android:textColor="#FFFFFF"/>
 </LinearLayout>

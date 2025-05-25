@@ -1,5 +1,6 @@
 package com.example.chat_real_time;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -19,11 +20,12 @@ public class ProfileActivity extends AppCompatActivity {
     private ImageView imageProfileAvatar;
     private static final int EDIT_PROFILE_REQUEST_CODE = 100;
     private TextView textName, textEmail, textPhone, textGender, textBio;
-    private Button btnEditProfile, btnLogout;
+    private Button btnEditProfile, btnLogout, btnBack;
 
     private FirebaseAuth mAuth;
     private DatabaseReference usersRef;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,20 +39,12 @@ public class ProfileActivity extends AppCompatActivity {
         textBio = findViewById(R.id.text_profile_bio);
         btnEditProfile = findViewById(R.id.btn_edit_profile);
         btnLogout = findViewById(R.id.btn_logout);
+        btnBack = findViewById(R.id.back_button);
 
         mAuth = FirebaseAuth.getInstance();
         usersRef = FirebaseDatabase.getInstance().getReference("users");
 
         loadUserInfo();
-
-        btnEditProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Mở EditProfileActivity để chỉnh sửa thông tin người dùng
-                Intent intent = new Intent(ProfileActivity.this, EditProfileActivity.class);
-                startActivity(intent);
-            }
-        });
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +59,12 @@ public class ProfileActivity extends AppCompatActivity {
         btnEditProfile.setOnClickListener(view -> {
             Intent intent = new Intent(ProfileActivity.this, EditProfileActivity.class);
             startActivityForResult(intent, EDIT_PROFILE_REQUEST_CODE);
+            overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_top);
+        });
+
+        btnBack.setOnClickListener(view -> {
+            Intent intent = new Intent(ProfileActivity.this, fragmentsContainer.class);
+            startActivity(intent);
         });
     }
 

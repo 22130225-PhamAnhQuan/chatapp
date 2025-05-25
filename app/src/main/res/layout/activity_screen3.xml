@@ -22,7 +22,7 @@
                 android:id="@+id/welcome_back_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Welcome"
+                android:text="Chào mừng đến với Chat App"
                 android:textColor="#FFFFFF"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -33,7 +33,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/welcome_back_text"
                 android:layout_marginTop="10dp"
-                android:text="Create your account."
+                android:layout_marginBottom="30dp"
+                android:text="Tạo tài khoản của bạn."
                 android:textColor="#808080"
                 android:textSize="18sp" />
 
@@ -44,7 +45,7 @@
                 android:layout_below="@+id/login_text"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="#2F2E2E"
-                android:hint="Email Address"
+                android:hint="Nhập Email"
                 android:textColor="#808080"
                 android:textColorHint="#808080"
                 android:textSize="14sp"
@@ -57,7 +58,7 @@
                 android:layout_below="@+id/et_email_address"
                 android:layout_marginTop="5dp"
                 android:backgroundTint="#2F2E2E"
-                android:hint="Password"
+                android:hint="Mật khẩu"
                 android:inputType="textPassword"
                 android:textColor="#808080"
                 android:textColorHint="#808080"
@@ -69,7 +70,7 @@
                 android:layout_height="60dp"
                 android:layout_below="@+id/et_password"
                 android:backgroundTint="#2F2E2E"
-                android:hint="Confirm Password"
+                android:hint="Xác nhân lại mật khẩu"
                 android:textColor="#808080"
                 android:textColorHint="#808080"
                 android:textSize="14sp"
@@ -92,7 +93,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:text="Sign Up"
+                    android:text="Đăng ký"
                     android:textColor="#FFFFFF"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -104,9 +105,9 @@
                 android:layout_below="@id/rl_signup_button"
                 android:layout_marginTop="15dp"
                 android:gravity="center"
-                android:text="LOGIN"
+                android:text="Đăng nhập"
                 android:textColor="#FFFFFF"
-                android:textSize="13sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:id="@+id/login"/>
         </RelativeLayout>

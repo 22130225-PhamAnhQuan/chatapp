@@ -6,12 +6,14 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -51,6 +53,20 @@ public class fragmentsContainer extends AppCompatActivity {
         cameraImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) { viewPager.setCurrentItem(1); }
+        });
+
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
+            if (!task.isSuccessful()) {
+                Log.w("MainActivity", "Fetching FCM registration token failed", task.getException());
+                return;
+            }
+
+            // Lấy token mới
+            String token = task.getResult();
+            Log.d("MainActivity", "FCM Token: " + token);
+
+            // Lưu token vào database (tương tự hàm saveTokenToDatabase)
+            saveTokenToDatabase(token);
         });
     }
 
@@ -104,6 +120,15 @@ public class fragmentsContainer extends AppCompatActivity {
         reference.child(auth.getUid()).child("state").setValue(state);
         reference.child(auth.getUid()).child("lastSeenTime").setValue(saveCurrentTime);
         reference.child(auth.getUid()).child("lastSeenDate").setValue(saveCurrentDate);
+    }
+
+
+    private void saveTokenToDatabase(String token) {
+        String uid = FirebaseAuth.getInstance().getCurrentUser() != null ? FirebaseAuth.getInstance().getCurrentUser().getUid() : null;
+        if (uid == null) return;
+
+        DatabaseReference tokensRef = FirebaseDatabase.getInstance().getReference("Tokens");
+        tokensRef.child(uid).setValue(token);
     }
 
     @Override

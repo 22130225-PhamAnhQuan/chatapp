@@ -7,15 +7,44 @@ import android.content.Intent;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
+
+
+    private static final String TAG = "FCMService";
+
+    @Override
+    public void onNewToken(@NonNull String token) {
+        super.onNewToken(token);
+        Log.d(TAG, "Refreshed token: " + token);
+        saveTokenToDatabase(token);
+    }
+
+    private void saveTokenToDatabase(String token) {
+        // Lấy user hiện tại
+        String uid = FirebaseAuth.getInstance().getCurrentUser() != null ? FirebaseAuth.getInstance().getCurrentUser().getUid() : null;
+        if (uid == null) {
+            Log.w(TAG, "User not logged in, can't save token.");
+            return;
+        }
+
+        // Lưu token vào database dưới node "Tokens/{uid}"
+        DatabaseReference tokensRef = FirebaseDatabase.getInstance().getReference("Tokens");
+        tokensRef.child(uid).setValue(token)
+                .addOnSuccessListener(aVoid -> Log.d(TAG, "Token saved successfully"))
+                .addOnFailureListener(e -> Log.e(TAG, "Failed to save token", e));
+    }
 
     @Override
     public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {
@@ -62,9 +91,4 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         notificationManager.notify(0, notificationBuilder.build());
     }
 
-    @Override
-    public void onNewToken(@NonNull String token) {
-        super.onNewToken(token);
-        // Gửi token này lên server hoặc Firebase nếu cần
-    }
 }
