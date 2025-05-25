@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment_screen4"
+    android:background="#1C1B1B"
+    android:orientation="vertical"
+    android:weightSum="10">
+
+    <ImageView
+        android:id="@+id/image_profile_avatar"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="25dp"
+        android:scaleType="centerCrop"
+        android:background="@drawable/common_full_open_on_phone"
+        android:clipToOutline="true"/>
+    <!--  Hiện tên  -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp">
+
+        <TextView
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="0dp"
+            android:layout_weight="1"
+            android:text="First Name:"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/text_profile_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            />
+    </LinearLayout>
+    <!--  Hiện Email  -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp">
+        <TextView
+            android:layout_width="25dp"
+            android:textColor="#FFFFFF"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Last Name:"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/text_profile_email"
+            android:layout_width="0dp"
+            android:textColor="#FFFFFF"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textStyle="bold"/>
+    </LinearLayout>
+    <!--  Hiện Số điện thoại  -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp">
+        <TextView
+            android:layout_width="25dp"
+            android:textColor="#FFFFFF"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Phone:"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/text_profile_sdt"
+            android:layout_width="0dp"
+            android:textColor="#FFFFFF"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textStyle="bold"/>
+    </LinearLayout>
+    <!--  Hiện Địa chỉ  -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp">
+        <TextView
+            android:layout_width="25dp"
+            android:textColor="#FFFFFF"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Gender:"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/text_profile_gender"
+            android:layout_width="0dp"
+            android:textColor="#FFFFFF"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp">
+        <TextView
+            android:layout_width="25dp"
+            android:textColor="#FFFFFF"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Bio:"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/text_profile_bio"
+            android:layout_width="0dp"
+            android:textColor="#FFFFFF"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text=""
+            android:textStyle="bold"/>
+    </LinearLayout>
+    <!--  Nút chỉnh sửa thông tin người dùng  -->
+    <Button
+        android:id="@+id/btn_edit_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="270dp"
+        android:text="Chỉnh sửa thông tin"/>
+    <!--  Nút đăng xuất  -->
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="#FF5252"
+        android:text="Đăng xuất"
+        android:textColor="#FFFFFF"/>
+</LinearLayout>

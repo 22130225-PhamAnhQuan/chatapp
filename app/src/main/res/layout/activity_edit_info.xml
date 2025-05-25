@@ -1,0 +1,117 @@
+<!--  Popup chỉnh sửa thông tin người dùng  -->
+<!--  Tên người làm: Phạm Anh Quân  -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:padding="24dp"
+    android:background="#1C1B1B">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chỉnh sửa thông tin"
+        android:layout_gravity="center"
+        android:textSize="30sp"
+        android:textStyle="italic"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="24dp"/>
+    <!--  Tên  -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:text="First Name:" android:textStyle="bold"
+        android:textSize="18dp" android:layout_marginTop="8dp"/>
+    <EditText
+        android:id="@+id/editFName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:background="@color/grey"
+        android:hint="Nhập tên..." android:minHeight="48dp"
+        android:padding="12dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:text="Last Name:" android:textStyle="bold"
+        android:textSize="18dp" android:layout_marginTop="8dp"/>
+    <EditText
+        android:id="@+id/editLName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:background="@color/grey"
+        android:hint="Nhập tên..." android:minHeight="48dp"
+        android:padding="12dp"/>
+    <!--  Email  -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:text="Phone:" android:textStyle="bold"
+        android:textSize="18dp" android:layout_marginTop="8dp"/>
+    <EditText
+        android:id="@+id/editemail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:background="@color/grey"
+        android:hint="Phone..."
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
+        android:padding="12dp"/>
+    <!--  SĐT  -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:text="Bio:"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:layout_marginTop="8dp"/>
+    <EditText
+        android:id="@+id/editPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:background="@color/grey"
+        android:hint="Bio..."
+        android:inputType="phone" android:minHeight="48dp"
+        android:padding="12dp"/>
+    <!--  Địa chỉ  -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:text="Address:"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        android:textSize="18dp"/>
+    <EditText
+        android:id="@+id/editAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:background="@color/grey"
+        android:hint="Nhập địa chỉ..."
+        android:minHeight="48dp"
+        android:padding="12dp"/>
+    <!--  Nút lưu  -->
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lưu"
+        android:layout_marginTop="24dp"
+        android:layout_gravity="center"/>
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Huỷ"
+        android:layout_marginTop="24dp"
+        android:layout_gravity="center"/>
+</LinearLayout>
